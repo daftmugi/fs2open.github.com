@@ -131,6 +131,11 @@ void gameplay_help_blit_control_line(int x, int y, int id)
 
 	gr_string(x,y,buf,GR_RESIZE_MENU);
 
+	if (id == TARGET_PREV_ESCORT_SHIP) {
+		gr_string(x+KEY_DESCRIPTION_OFFSET, y, ci->text.c_str(), GR_RESIZE_MENU);
+		return;
+	}
+
 //	gr_string(x+KEY_DESCRIPTION_OFFSET,y,ci->text,GR_RESIZE_MENU);
 	gr_string(x+KEY_DESCRIPTION_OFFSET, y, XSTR(ci->text.c_str(), CONTROL_CONFIG_XSTR + id), GR_RESIZE_MENU);
 }
@@ -472,6 +477,9 @@ void gameplay_help_draw_text()
 
 			y_offset += separation;
 			gameplay_help_blit_control_line(x_offset, y_offset,TARGET_NEXT_ESCORT_SHIP);
+
+			y_offset += separation;
+			gameplay_help_blit_control_line(x_offset, y_offset,TARGET_PREV_ESCORT_SHIP);
 
 			y_offset += separation;
 			gameplay_help_blit_control_line(x_offset, y_offset,TARGET_CLOSEST_REPAIR_SHIP);

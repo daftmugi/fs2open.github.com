@@ -273,6 +273,7 @@ int Normal_key_set[] = {
 	ADD_REMOVE_ESCORT,
 	ESCORT_CLEAR,
 	TARGET_NEXT_ESCORT_SHIP,
+	TARGET_PREV_ESCORT_SHIP,
 
 	XFER_SHIELD,
 	XFER_LASER,
@@ -369,6 +370,7 @@ int Dead_key_set[] = {
 	ADD_REMOVE_ESCORT,
 	ESCORT_CLEAR,
 	TARGET_NEXT_ESCORT_SHIP,
+	TARGET_PREV_ESCORT_SHIP,
 	TARGET_CLOSEST_REPAIR_SHIP,	
 
 	MULTI_MESSAGE_ALL,
@@ -455,6 +457,7 @@ int Non_critical_key_set[] = {
 	ADD_REMOVE_ESCORT,
 	ESCORT_CLEAR,
 	TARGET_NEXT_ESCORT_SHIP,
+	TARGET_PREV_ESCORT_SHIP,
 	MULTI_MESSAGE_ALL,
 	MULTI_MESSAGE_FRIENDLY,
 	MULTI_MESSAGE_HOSTILE,
@@ -2377,6 +2380,7 @@ int button_function(int n)
 			case TARGET_NEXT_LIVE_TURRET:
 			case TARGET_PREV_LIVE_TURRET:
 			case TARGET_NEXT_ESCORT_SHIP:
+			case TARGET_PREV_ESCORT_SHIP:
 				control_used(n);	// set the timestamp for when we used the control, in case we need it
 				return 1;			// pretend we took the action: if we return 0, strange stuff may happen
 		}
@@ -2913,6 +2917,10 @@ int button_function(int n)
 
 		case TARGET_NEXT_ESCORT_SHIP:
 			hud_escort_target_next();
+			break;
+
+		case TARGET_PREV_ESCORT_SHIP:
+			hud_escort_target_prev();
 			break;
 
 		default:

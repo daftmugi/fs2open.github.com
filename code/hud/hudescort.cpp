@@ -908,6 +908,33 @@ void hud_escort_target_next()
 	hud_restore_subsystem_target(&Ships[Objects[objnum].instance]);
 }
 
+// target the previous ship in the escort list
+void hud_escort_target_prev()
+{
+	int objnum;
+
+	if ( Escort_ships.empty() ) {
+		snd_play( gamesnd_get_game_sound(GameSounds::TARGET_FAIL), 0.0f );
+		return;
+	}
+
+	Last_target_index--;
+	if ( Last_target_index < 0 ) {
+		Last_target_index = hud_escort_num_ships_on_list() - 1;
+	}
+
+	auto eship = get_escort_entry_from_index(Last_target_index);
+
+	if ( (eship == Escort_ships.end()) || (eship->objnum < 0) ) {
+		return;
+	}
+
+	objnum = eship->objnum;
+
+	set_target_objnum( Player_ai,  objnum);
+	hud_restore_subsystem_target(&Ships[Objects[objnum].instance]);
+}
+
 // return the number of ships currently on the escort list
 int hud_escort_num_ships_on_list()
 {

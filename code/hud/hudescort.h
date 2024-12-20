@@ -29,6 +29,7 @@ void	hud_add_remove_ship_escort(int objnum, int supress_feedback = 0);
 void	hud_escort_clear_all(bool clear_flags = false);
 void	hud_escort_ship_hit(object *objp, int quadrant);
 void	hud_escort_target_next();
+void	hud_escort_target_prev();
 void	hud_escort_cull_list();
 void	hud_add_ship_to_escort(int objnum, int supress_feedback);
 void  hud_remove_ship_from_escort(int objnum);

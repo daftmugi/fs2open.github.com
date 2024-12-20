@@ -214,6 +214,7 @@ enum IoActionId : int {
 	ESCORT_CLEAR									=87,	//!< ESCORT_CLEAR
 
 	TARGET_NEXT_ESCORT_SHIP							=88,	//!< TARGET_NEXT_ESCORT_SHIP
+	// TARGET_PREV_ESCORT_SHIP						SEE BELOW,
 	TARGET_CLOSEST_REPAIR_SHIP						=89,	//!< target the closest repair ship
 	TARGET_NEXT_UNINSPECTED_CARGO					=90,	//!< TARGET_NEXT_UNINSPECTED_CARGO
 	TARGET_PREV_UNINSPECTED_CARGO					=91,	//!< TARGET_PREV_UNINSPECTED_CARGO
@@ -293,6 +294,8 @@ enum IoActionId : int {
 	JOY_BANK_AXIS									= 126,
 	JOY_ABS_THROTTLE_AXIS							= 127,
 	JOY_REL_THROTTLE_AXIS							= 128,
+
+	TARGET_PREV_ESCORT_SHIP,
 
 	/*!
 	 * This must always be below the last defined item
